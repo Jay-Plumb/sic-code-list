@@ -1,21 +1,16 @@
-name: Node.js Package *
-
 on:
-  pull_request:
-    branches:
-      - main
+  push:
+    branches: main
 
 jobs:
-  publish-npm:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: "20"
-          registry-url: "https://www.npmjs.org/"
       - run: npm ci
-      - run: npm test
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
