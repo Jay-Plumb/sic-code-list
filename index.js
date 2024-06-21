@@ -1,26 +1,18 @@
-import fs from "fs";
-import csv from "csv-parser";
-
-// Read CSV file and return the data as an array of objects
-function readCSV(filename) {
-  let data = [];
-  return new Promise((resolve, reject) => {
-    fs.createReadStream(filename)
-      .pipe(csv())
-      .on("data", (row) => {
-        data.push(row);
-      })
-      .on("end", () => {
-        resolve(data);
-      })
-      .on("error", reject);
-  });
+async function loadData() {
+  try {
+    // Adjust the path as necessary to match your project structure
+    const module = await import("./data.json", { assert: { type: "json" } });
+    const data = module.default;
+    return data;
+  } catch (error) {
+    console.error("Failed to load data.json with type 'json':", error);
+  }
 }
 
 async function lookupSICCode(sicCode) {
   try {
-    const data = await readCSV("../node_modules/sic-code-list/data.csv");
-    return data.filter((row) => row["SIC Code"] === sicCode);
+    const data = await loadData();
+    return data.filter((row) => row["sicCode"] === sicCode);
   } catch (error) {
     console.error(error);
   }
