@@ -9,10 +9,13 @@ async function loadData() {
   }
 }
 
-async function lookupSICCode(sicCode) {
+async function lookupSICCode(sicCodes) {
   try {
     const data = await loadData();
-    return data.filter((row) => row["sicCode"] === sicCode);
+    const matchingResults = data.filter((row) =>
+      sicCodes.includes(+row["sicCode"])
+    );
+    return matchingResults;
   } catch (error) {
     console.error(error);
   }
