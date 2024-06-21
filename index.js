@@ -12,8 +12,9 @@ async function loadData() {
 async function lookupSICCode(sicCodes) {
   try {
     const data = await loadData();
+    const normalizedSICCodes = sicCodes.map((code) => +code);
     const matchingResults = data.filter((row) =>
-      sicCodes.includes(+row["sicCode"])
+      normalizedSICCodes.includes(+row["sicCode"])
     );
     return matchingResults;
   } catch (error) {

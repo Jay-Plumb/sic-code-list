@@ -1,6 +1,6 @@
 {
   "name": "sic-code-list",
-  "version": "2.1.1",
+  "version": "2.2.1",
   "description": "Standard industrial classification SIC code list",
   "main": "index.js",
   "type": "module",
