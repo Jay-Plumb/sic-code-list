@@ -1,4 +1,4 @@
-## Insallation
+## Installation
 
 ```npm
 npm i sic-code-list
@@ -6,7 +6,7 @@ npm i sic-code-list
 
 ## Usage
 
-Pass in an SIC code such as `100` and retrieve the `SIC Code`, `Office` and `Industry Title`:
+Pass in an SIC code such as `100` and retrieve the `sicCode`, `office` and `industry`:
 
 ```js
 import { lookupSICCode } from "sic-code-list";
@@ -28,9 +28,9 @@ Response:
 ```json
 [
   {
-    "SIC Code": "100",
-    "Office": "Industrial Applications and Services",
-    "Industry Title": "AGRICULTURAL PRODUCTION-CROPS"
+    "sicCode": "100",
+    "office": "Industrial Applications and Services",
+    "industry": "AGRICULTURAL PRODUCTION-CROPS"
   }
 ]
 ```
