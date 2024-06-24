@@ -1,3 +1,5 @@
+Standard industrial classification SIC code list in accordance to the SEC
+
 ## Installation
 
 ```npm
