@@ -1,6 +1,6 @@
 {
   "name": "sic-code-list",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Standard industrial classification SIC code list",
   "main": "index.js",
   "type": "module",
@@ -19,9 +19,6 @@
   ],
   "author": "Jason Plumb",
   "license": "ISC",
-  "dependencies": {
-    "fs": "^0.0.1-security"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Jay-Plumb/sic-code-list.git"
